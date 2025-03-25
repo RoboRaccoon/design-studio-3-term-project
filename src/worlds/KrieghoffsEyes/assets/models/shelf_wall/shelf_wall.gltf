@@ -15,7 +15,12 @@
     "nodes" : [
         {
             "mesh" : 0,
-            "name" : "Box004_Material #2_0"
+            "name" : "Box004_Material #2_0",
+            "scale" : [
+                0.009999999776482582,
+                0.009999999776482582,
+                0.009999999776482582
+            ]
         },
         {
             "children" : [
@@ -27,11 +32,6 @@
                 0,
                 0,
                 0.7071068286895752
-            ],
-            "translation" : [
-                10.798909187316895,
-                0,
-                -7.389806270599365
             ]
         },
         {
@@ -62,24 +62,25 @@
                 0,
                 0,
                 0.7071068286895752
-            ],
-            "scale" : [
-                0.009999999776482582,
-                0.009999999776482582,
-                0.009999999776482582
             ]
         }
     ],
     "materials" : [
         {
             "doubleSided" : true,
-            "name" : "Material_2.002",
-            "pbrMetallicRoughness" : {}
+            "name" : "Material",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 0
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.4000000059604645
+            }
         }
     ],
     "meshes" : [
         {
-            "name" : "Box004_Material #2_0.002",
+            "name" : "Box004_Material #2_0",
             "primitives" : [
                 {
                     "attributes" : {
@@ -91,6 +92,19 @@
                     "material" : 0
                 }
             ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "Material_2_diffuse",
+            "uri" : "textures/Material_2_diffuse.jpg"
         }
     ],
     "accessors" : [
@@ -149,6 +163,12 @@
             "buffer" : 0,
             "byteLength" : 744,
             "byteOffset" : 8352
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
         }
     ],
     "buffers" : [
