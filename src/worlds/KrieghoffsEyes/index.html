@@ -47,12 +47,12 @@
       <img id="blizzard" src="assets/models/blizzard/blizzard.png" crossorigin="anonymous"></a-asset-item>
       <img id="blizzard_gray" src="assets/models/blizzard/blizzard_gray.png" crossorigin="anonymous"></a-asset-item>
 
-      <img id="portrait1" src="assets/models/painting/paintings/portrait1.jpg" crossorigin="anonymous"></a-asset-item>
-      <img id="portrait2" src="assets/models/painting/paintings/portrait2.jpg" crossorigin="anonymous"></a-asset-item>
-      <img id="portrait3" src="assets/models/painting/paintings/portrait3.jpg" crossorigin="anonymous"></a-asset-item>
-      <img id="portrait4" src="assets/models/painting/paintings/portrait4.jpg" crossorigin="anonymous"></a-asset-item>
-      <img id="portrait5" src="assets/models/painting/paintings/portrait5.jpg" crossorigin="anonymous"></a-asset-item>
-      <img id="portrait6" src="assets/models/painting/paintings/portrait6.jpg" crossorigin="anonymous"></a-asset-item>
+      <img id="portrait1_img" src="assets/models/painting/paintings/portrait1.jpg" crossorigin="anonymous"></a-asset-item>
+      <img id="portrait2_img" src="assets/models/painting/paintings/portrait2.jpg" crossorigin="anonymous"></a-asset-item>
+      <img id="portrait3_img" src="assets/models/painting/paintings/portrait3.jpg" crossorigin="anonymous"></a-asset-item>
+      <img id="portrait4_img" src="assets/models/painting/paintings/portrait4.jpg" crossorigin="anonymous"></a-asset-item>
+      <img id="portrait5_img" src="assets/models/painting/paintings/portrait5.jpg" crossorigin="anonymous"></a-asset-item>
+      <img id="portrait6_img" src="assets/models/painting/paintings/portrait6.jpg" crossorigin="anonymous"></a-asset-item>
 
       <a-asset-item id="sculpture" src="/worlds/KrieghoffsEyes/assets/models/sculptures/head.gltf"
         response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
@@ -245,7 +245,14 @@
         </a-entity>
         <a-entity id="painting3" scale="20 20 20" gltf-model="#painting_gltf" position="0.90896 0 -4.31538" rotation="0 -130.53239080229443 0"></a-entity>
 
-        
+         <!--Portraits-->
+       <a-entity geometry="box" id="portrait1" position="-1.89136 2.2841 -7.73931" scale="1 1.3 0.071" rotation="0 1.0370536091867901 0" material="color:#ffffff; src:#portrait1_img; shader: standard; transparent: true; emissive: #ffffff; emissiveIntensity: 0;" scale="0.65073 0.88525 1"></a-entity>
+       <a-entity geometry="box" id="portrait3" position="-2.96588 3.60297 -7.74067" scale="0.78549 0.49678 0.03692" rotation="0 1.0370536091867901 0" material="color:#ffffff; src:#portrait3_img; shader: standard; transparent: true; emissive: #ffffff; emissiveIntensity: 0;" scale="0.65073 0.88525 1"></a-entity>
+       <a-entity geometry="box" id="portrait2" position="-1.90082 3.64854 -7.75995" scale="0.52001 0.73698 0.03692" rotation="0 1.0370536091867901 0" material="color:#ffffff; src:#portrait2_img; shader: standard; transparent: true; emissive: #ffffff; emissiveIntensity: 0;" scale="0.65073 0.88525 1"></a-entity>
+       <a-entity geometry="box" id="portrait4" position="-5.64525 3.80027 -0.94984" scale="0.49329 0.73422 0.03687" rotation="0 90 0" material="color:#ffffff; src:#portrait4_img; shader: standard; transparent: true; emissive: #ffffff; emissiveIntensity: 0;" scale="0.65073 0.88525 1"></a-entity>
+       <a-entity geometry="box" id="portrait5" position="-5.57586 3.96255 -2.7662" scale="0.69579 0.91327 0.02627" rotation="3.810742295415105 89.63237155467573 0.12146705256773452" material="color:#ffffff; src:#portrait5_img; shader: standard; transparent: true; emissive: #ffffff; emissiveIntensity: 0;" scale="0.65073 0.88525 1"></a-entity>
+       <a-entity geometry="box" id="portrait6" position="-5.62286 3.94622 -5.4444" scale="0.40505 0.52656 0.02876" rotation="0 90 0" material="color:#ffffff; src:#portrait6_img; shader: standard; transparent: true; emissive: #ffffff; emissiveIntensity: 0;" scale="0.65073 0.88525 1"></a-entity>
+
         <a-entity id="frame" scale="0.05 0.05 0.05" gltf-model="#frame_gltf" position="-2.44052 3.59935 -7.74718" rotation="0 0 90"></a-entity>
         <a-entity id="frame1-2" scale="0.05 0.04463 0.05" gltf-model="#frame_gltf" position="-1.89908 3.19875 -7.74718"></a-entity>
         <a-entity id="frame1-3" scale="0.06218 0.05719 0.05" gltf-model="#frame_gltf" position="-1.89908 1.68439 -7.74718"></a-entity>
