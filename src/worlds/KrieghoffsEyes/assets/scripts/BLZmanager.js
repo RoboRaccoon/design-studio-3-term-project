@@ -30,6 +30,12 @@ AFRAME.registerComponent('blz-manager', {
             this.spawnPortal();
             //rest tasks completed to 0 so portal summons again when we re-enter
             this.taksCompleted = 0;
+            //update the checklist
+            let checklist = document.querySelector('#painting2_blizzardTask');
+            checklist.setAttribute('text', {
+              value: '- Blizzard: Painting Restored!',
+              color: 'green'
+            });
           }
         });
 
