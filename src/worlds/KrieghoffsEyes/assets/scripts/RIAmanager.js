@@ -352,6 +352,7 @@ AFRAME.registerComponent('lazy-load-environment', {
     init: function () {
       const scene = document.querySelector('a-scene');
       const riaWorld = document.querySelector('#riaWorld');
+      
       scene.addEventListener('loaded', () => {
         const riaEnv = document.createElement('a-entity');
         riaEnv.setAttribute('gltf-model', '#ria_environment');
@@ -361,8 +362,7 @@ AFRAME.registerComponent('lazy-load-environment', {
         riaEnv.setAttribute('visible', 'false');
         riaEnv.setAttribute('id', 'riaEnv');
         riaWorld.appendChild(riaEnv);
-  
-        
+
       });
       
      
@@ -380,6 +380,7 @@ AFRAME.registerComponent('lazy-load-environment', {
           }
   
         });
+        
       }
     }
   });

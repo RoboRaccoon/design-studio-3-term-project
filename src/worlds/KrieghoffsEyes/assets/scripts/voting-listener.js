@@ -5,11 +5,11 @@ AFRAME.registerComponent('voting-listener', {
     var self = this;
     // Array to store voterId, painting
     this.votes = [];
-    this.totalVotes = { redPaint: 0, greenPaint: 0, bluePaint: 0, redPaint_return: 0 };
+    this.totalVotes = { redPaint: 0, greenPaint: 0, bluePaint: 0, redPaint_return: 0, greenPaint_return: 0 };
 
     // Update totalVotes
     this.updateTotalVotes = function () {
-      self.totalVotes = { redPaint: 0, greenPaint: 0, bluePaint: 0, redPaint_return: 0 };
+      self.totalVotes = { redPaint: 0, greenPaint: 0, bluePaint: 0, redPaint_return: 0, greenPaint_return: 0 };
       self.votes.forEach(function (vote) {
         var p = vote.painting;
         self.totalVotes[p] = (self.totalVotes[p] || 0) + 1;
@@ -71,8 +71,23 @@ AFRAME.registerComponent('voting-listener', {
                   winningEntity.removeAttribute("circles-sendpoint");
             }, 0);
             }
+             // Only activate RIAmanager if the red painting is clicked
+             if (winner === "greenPaint") {
+              riaManager.emit('blz-painting-clicked');  // Trigger ria-manager
+              setTimeout(() => {
+                  winningEntity.removeAttribute("circles-sendpoint");
+            }, 0);
+            }
 
             if (winner === "redPaint_return") {
+              riaManager.emit('return-clicked');
+              setTimeout(() => {
+                winningEntity.removeAttribute("circles-sendpoint");
+                self.votes = [];  // <-- Reset votes here
+                self.updateCounters();
+              }, 0);
+            }
+            if (winner === "greenPaint_return") {
               riaManager.emit('return-clicked');
               setTimeout(() => {
                 winningEntity.removeAttribute("circles-sendpoint");
@@ -149,8 +164,22 @@ AFRAME.registerComponent('voting-listener', {
                 winningEntity.removeAttribute("circles-sendpoint");
               }, 0);
             }
+            if (data.winner === "greenPaint") {
+              riaManager.emit('blz-painting-clicked');  // Trigger ria-manager
+              setTimeout(() => {
+                winningEntity.removeAttribute("circles-sendpoint");
+              }, 0);
+            }
 
             if (data.winner === "redPaint_return") {
+              riaManager.emit('return-clicked');
+              setTimeout(() => {
+                winningEntity.removeAttribute("circles-sendpoint");
+                self.votes = [];  // <-- Reset votes here
+                self.updateCounters();
+              }, 0);
+            }
+            if (data.winner === "greenPaint_return") {
               riaManager.emit('return-clicked');
               setTimeout(() => {
                 winningEntity.removeAttribute("circles-sendpoint");
@@ -165,6 +194,11 @@ AFRAME.registerComponent('voting-listener', {
             if (newEnvironment) {
               environment.setAttribute("environment", newEnvironment);
             }
+
+            //hide the info panel after voting for everyone
+            const infoPanel = document.querySelector('#infoPanel');
+            infoPanel.setAttribute('visible', false);
+
           }
         }
       });
