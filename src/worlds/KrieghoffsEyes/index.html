@@ -142,7 +142,8 @@
       <a-entity id="riaWorld">
         <a-ocean id="ocean" color="#92E2E2" opacity="1" width="500" depth="500" position="36.222 -0.792 0" density="100" speed="3" circles-interactive-visible="false"></a-ocean>
       </a-entity>
-
+    
+    <a-entity visible='false' id="nav-mesh" nav-mesh geometry="primitive: box" scale="11 .05 14.6" position="0 0.04 0"></a-entity>
     <a-entity id="GameManager" ria-manager blz-manager voting-listener lazy-load-environment blz-lazy-load-environment></a-entity>
     <a-entity id="riaWorld">
       <a-ocean id="ocean" color="#92E2E2" opacity="0.5" width="500" depth="500" position="36.222 -0.792 0" density="100"
@@ -184,13 +185,13 @@
       <a-box position="0.89307 1.31338 -4.2979" scale="1 1.3 0.071"
         rotation="-15.487622160181282 -38.13320605493194 0.3472124238492789" color="#940000" id="redPaint"
         class="interactive" circles-interactive-object="type:highlight"
-        environemntProp="preset: forest; groundYScale: 0.000; seed: 222; skyType: atmosphere; lightPosition: 0 4.88 25; lighting: distant; dressing: none;"
+        environmentProp="preset: forest; groundYScale: 0.000; seed: 222; skyType: atmosphere; lightPosition: 0 4.88 25; lighting: distant; dressing: none;"
         painting-highlight
         material="color:#ffffff; src:#RIA_gray; shader: standard; transparent: true; emissive: #ffffff; emissiveIntensity: 0;"></a-box>
 
       <a-box position="-2.86388 1.33563 -4.2867" scale="1 1.3 0.071"
         rotation="-15.513978218757302 42.626914042142985 0.9035544429213082" color="green" id="greenPaint"
-        class="interactive" circles-interactive-object="type:highlight" environemntProp="preset: japan; ground: none; groundYPosition: -5; seed: 222; skyType: color; skyColor: #3d4040;  lighting: distant; dressing: none;"
+        class="interactive" circles-interactive-object="type:highlight" environmentProp="preset: japan; ground: none; groundYPosition: -5; seed: 222; skyType: color; skyColor: #3d4040;  lighting: distant; dressing: none;"
         painting-highlight
         material="color: #fffff; src:#blizzard_gray; shader: standard; transparent: true; emissive: #ffffff; emissiveIntensity: 0;"></a-box>
 

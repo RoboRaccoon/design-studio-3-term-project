@@ -15,15 +15,7 @@ AFRAME.registerComponent('ria-manager', {
         // Wait for the red painting click event
         this.el.addEventListener('ria-painting-clicked', () => {
             this.startRaftTask();
-            this.riaWorld = document.querySelector('#riaWorld');
-            // this.navmesh.setAttribute("gltf-model", '#ria_navmesh');
-            this.navmesh.setAttribute('position', '-6.614 2.162 -0.061');
-            this.navmesh.setAttribute('rotation', '6.571 89.829 0.505');
-            this.navmesh.setAttribute('scale', '295.198 0.087 33.998');
-            this.navmesh.removeAttribute('nav-mesh');
-            this.navmesh.setAttribute('nav-mesh', '');
-
-            // this.navmesh.removeAttribute('geometry');
+            
         });
 
         this.el.addEventListener('ria-complete', () =>{
@@ -35,14 +27,20 @@ AFRAME.registerComponent('ria-manager', {
               value: '- Raft In Autumn: Painting Restored!',
               color: 'green'
             });
+            this.redPaint = document.querySelector('#redPaint');
+            this.redPaint.setAttribute('material', 'src:#RIA');
         });
 
         this.el.addEventListener('return-clicked', () => {
+             // Remove navmesh
+             if (this.navmesh && this.navmesh.parentNode) {
+              this.navmesh.parentNode.removeChild(this.navmesh);
+            }
             this.riaWorld = document.querySelector('#riaWorld');
             this.environment = document.querySelector('#environment');
-            this.redPaint = document.querySelector('#redPaint');
-            this.redPaint.setAttribute('material', 'src:#RIA')
-
+           
+            
+            
             // Hide Ria world, show cabin
             this.riaWorld.setAttribute('visible', 'false');
             this.cabin.setAttribute('visible', 'true');
@@ -59,6 +57,9 @@ AFRAME.registerComponent('ria-manager', {
                 dressing: 'none'
             });
         
+            
+
+
             // Remove all logs from the scene
             this.logs.forEach(log => {
                 if (log.parentNode) {
@@ -92,9 +93,19 @@ AFRAME.registerComponent('ria-manager', {
 
     startRaftTask: function () {
         console.log('Starting Raft in Autumn task');
+        this.cabin.setAttribute('visible', 'false');
         this.spawnLogs();
         this.spawnPedestal();
-        this.cabin.setAttribute('visible', 'false');
+        this.riaWorld = document.querySelector('#riaWorld');
+        // this.navmesh.setAttribute("gltf-model", '#ria_navmesh');
+        this.navmesh.setAttribute('position', '-6.614 2.162 -0.061');
+        this.navmesh.setAttribute('rotation', '6.571 89.829 0.505');
+        this.navmesh.setAttribute('scale', '295.198 0.087 33.998');
+        this.navmesh.removeAttribute('nav-mesh');
+        this.navmesh.setAttribute('nav-mesh', '');
+        this.riaWorld.setAttribute('visible', 'true');
+        // this.navmesh.removeAttribute('geometry');
+       
     },
    
     spawnLogs: function () {
@@ -174,7 +185,7 @@ AFRAME.registerComponent('ria-manager', {
         redPaint.setAttribute('id', 'redPaint_return');
         redPaint.setAttribute('class', 'interactive');
         redPaint.setAttribute('circles-interactive-object', 'type:highlight');
-        redPaint.setAttribute('environemntProp', 'preset: forest; groundYScale: 0.000; seed: 222; skyType: atmosphere; lightPosition: 0 4.88 25; lighting: distant; dressing: none;');
+        redPaint.setAttribute('environmentProp', 'preset: forest; groundYScale: 0.000; seed: 222; skyType: atmosphere; lightPosition: 0 4.88 25; lighting: distant; dressing: none;');
         redPaint.setAttribute('painting-highlight', '');
         redPaint.setAttribute('material', 'color:#ffffff; src: #RIA; shader: standard; transparent: true; emissive: #ffffff; emissiveIntensity: 0;');
 

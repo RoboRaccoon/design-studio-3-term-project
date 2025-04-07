@@ -66,6 +66,8 @@ AFRAME.registerComponent('voting-listener', {
 
             // Only activate RIAmanager if the red painting is clicked
             if (winner === "redPaint") {
+              const RiaEnv = document.querySelector('#riaEnv');
+              RiaEnv.setAttribute('visible', 'true');
               riaManager.emit('ria-painting-clicked');  // Trigger ria-manager
               setTimeout(() => {
                   winningEntity.removeAttribute("circles-sendpoint");
@@ -98,7 +100,7 @@ AFRAME.registerComponent('voting-listener', {
             winningEntity.emit('click');
 
             const painting = document.querySelector("#" + winner);
-            const newEnvironment = painting.getAttribute("environemntProp");
+            const newEnvironment = painting.getAttribute("environmentProp");
             if (newEnvironment) {
               environment.setAttribute("environment", newEnvironment);
             }
@@ -159,6 +161,8 @@ AFRAME.registerComponent('voting-listener', {
 
             // Only activate RIAmanager if the red painting is clicked
             if (data.winner === "redPaint") {
+              const RiaEnv = document.querySelector('#riaEnv');
+              RiaEnv.setAttribute('visible', 'true');
               riaManager.emit('ria-painting-clicked');  // Trigger ria-manager
               setTimeout(() => {
                 winningEntity.removeAttribute("circles-sendpoint");
@@ -190,7 +194,7 @@ AFRAME.registerComponent('voting-listener', {
             winningEntity.emit('click');
 
             const painting = document.querySelector("#" + data.winner);
-            const newEnvironment = painting.getAttribute("environemntProp");
+            const newEnvironment = painting.getAttribute("environmentProp");
             if (newEnvironment) {
               environment.setAttribute("environment", newEnvironment);
             }

@@ -469,7 +469,7 @@ AFRAME.registerComponent('blz-manager', {
         sled.setAttribute('position', `-60 0.3 0`);
 
         sled.setAttribute('id', `sled`);
-        sled.setAttribute('visible', 'false');
+        sled.setAttribute('visible', 'true');
         sled.setAttribute('gltf-model', `#Sled4`);
         sled.setAttribute('material', 'color: brown'); // Material needs to be separate
         
@@ -495,7 +495,7 @@ AFRAME.registerComponent('blz-manager', {
         greenPaint.setAttribute('id', 'greenPaint_return');
         greenPaint.setAttribute('class', 'interactive');
         greenPaint.setAttribute('circles-interactive-object', 'type:highlight');
-        greenPaint.setAttribute('environemntProp', 'preset: checkerboard; seed: 123; fog: 0.06; lightPosition: -4.160 1 0; skyType: gradient; skyColor: #0f0c14; horizonColor: #000000 lighting: none; dressing: none;');
+        greenPaint.setAttribute('environmentProp', 'preset: checkerboard; seed: 123; fog: 0.06; lightPosition: -4.160 1 0; skyType: gradient; skyColor: #0f0c14; horizonColor: #000000 lighting: none; dressing: none;');
         greenPaint.setAttribute('painting-highlight', '');
         greenPaint.setAttribute('material', 'color:#ffffff; src: #blizzard; shader: standard; transparent: true; emissive: #ffffff; emissiveIntensity: 0;');
 
@@ -811,7 +811,9 @@ AFRAME.registerComponent('blz-lazy-load-environment', {
       
       const blzWorld = document.querySelector('#blzWorld');
       scene.addEventListener('loaded', () => {
-
+      const gameManager = document.querySelector('#GameManager');
+      if (gameManager) {
+        gameManager.addEventListener('blz-painting-clicked', () => {   
         //Blizzard set up
         const blzEnv = document.createElement('a-entity');
         //adding cylinder for testing - replace with gltf
@@ -819,22 +821,17 @@ AFRAME.registerComponent('blz-lazy-load-environment', {
         blzEnv.setAttribute('gltf-model', '#blz_environment');
         blzEnv.setAttribute('position', '-42 -8 -10.743');
         blzEnv.setAttribute('scale', '8 8 8')
-        blzEnv.setAttribute('visible', 'false');
+        blzEnv.setAttribute('visible', 'true');
         blzEnv.setAttribute('id', 'blzEnv');
         blzWorld.appendChild(blzEnv);
-  
-      });
-      
-     
-      const gameManager = document.querySelector('#GameManager');
-      if (gameManager) {
-        gameManager.addEventListener('blz-painting-clicked', () => {
-            const blzEnv = document.querySelector('#blzEnv');
-            if (blzEnv) {
-              blzEnv.setAttribute('visible', 'true');
-            }
+
+      const blz_Env = document.querySelector('#blz_environment');
+      if (blz_Env) {
+        blz_Env.setAttribute('visible', 'true');
+        }
         })
       }
+    });
     }
   });
 
