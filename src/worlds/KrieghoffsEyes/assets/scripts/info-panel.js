@@ -7,7 +7,7 @@ AFRAME.registerComponent('info-panel', {
       redPaint: { x: 0.83307, y: 1.31338, z: -4.2279 },
       greenPaint: { x: -2.5964, y: 1.33563, z: -4.01162 },
       redPaint_return: { x: -0.644, y: 3.046, z: -18.630 },
-      greenPaint_return: { x: -59.9, y: 1.3, z: -3 }
+      greenPaint_return: { x: -51.685, y: -0.058, z: -10 }
     };
 
     this.panelRotation = {
