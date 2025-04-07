@@ -32,10 +32,6 @@ AFRAME.registerComponent('ria-manager', {
         });
 
         this.el.addEventListener('return-clicked', () => {
-             // Remove navmesh
-             if (this.navmesh && this.navmesh.parentNode) {
-              this.navmesh.parentNode.removeChild(this.navmesh);
-            }
             this.riaWorld = document.querySelector('#riaWorld');
             this.environment = document.querySelector('#environment');
            
@@ -86,6 +82,16 @@ AFRAME.registerComponent('ria-manager', {
                     element.parentNode.removeChild(element);
                 }
             });
+
+            this.navmesh.setAttribute('visible', 'false');
+            this.navmesh.setAttribute('id', 'nav-mesh');
+            this.navmesh.setAttribute('geometry', 'primitive: box');
+            this.navmesh.setAttribute('scale', '11 0.05 14.6');
+            this.navmesh.setAttribute('position', '0 0.04 0');
+            this.navmesh.removeAttribute('rotation'); // if it had a rotation previously
+            this.navmesh.removeAttribute('nav-mesh');
+            this.navmesh.setAttribute('nav-mesh', '');
+            
         
             console.log("All spawned objects removed. Environment reset.");
         });
