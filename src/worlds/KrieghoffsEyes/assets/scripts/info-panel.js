@@ -14,7 +14,7 @@ AFRAME.registerComponent('info-panel', {
       redPaint: { x:-15.487622160181282, y:-38.13320605493194, z:0.3472124238492789},
       greenPaint: { x: -15.513978218757302, y: 42.626914042142985, z: 0.9035544429213082 },
       redPaint_return: { x: -15.487622160181282, y: -38.13320605493194, z: 0.3472124238492789 },
-      greenPaint_return: { x: -15, y: 90, z: 0 }
+      greenPaint_return: { x: -15, y: 90, z: -8.7 }
     }
 
     this.paintingInfo = {
