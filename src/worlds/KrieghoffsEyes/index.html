@@ -13,6 +13,7 @@
   <script src="assets/scripts/painting-highlight.js"></script>
   <script src="assets/scripts/info-panel.js"></script>
   <script src="assets/scripts/voting-listener.js"></script>
+  <script src="assets/scripts/vr-controls.js"></script>
 </head>
 
 <body>
@@ -142,6 +143,10 @@
       <a-entity id="riaWorld">
         <a-ocean id="ocean" color="#92E2E2" opacity="1" width="500" depth="500" position="36.222 -0.792 0" density="100" speed="3" circles-interactive-visible="false"></a-ocean>
       </a-entity>
+    
+    <!--The vr controls-->
+    <a-entity meta-touch-controls="hand: left" vr-controls></a-entity>
+    <a-entity meta-touch-controls="hand: right" vr-controls></a-entity>
     
     <a-entity visible='false' id="nav-mesh" nav-mesh geometry="primitive: box" scale="11 .05 14.6" position="0 0.04 0"></a-entity>
     <a-entity id="GameManager" ria-manager blz-manager voting-listener lazy-load-environment blz-lazy-load-environment></a-entity>
