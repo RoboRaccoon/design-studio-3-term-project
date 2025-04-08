@@ -7,7 +7,7 @@ AFRAME.registerComponent('info-panel', {
       redPaint: { x: 0.83307, y: 1.31338, z: -4.2279 },
       greenPaint: { x: -2.5964, y: 1.33563, z: -4.01162 },
       redPaint_return: { x: -0.644, y: 3.046, z: -18.630 },
-      greenPaint_return: { x: -51.685, y: -0.058, z: -10 }
+      greenPaint_return: { x: -51.685, y: -0.34, z: -8.8}
     };
 
     this.panelRotation = {
@@ -30,7 +30,8 @@ AFRAME.registerComponent('info-panel', {
       redPaint_gray: '#RIA_gray',
       greenPaint: '#blizzard',
       greenPaint_gray: '#blizzard_gray',
-      redPaint_return: '#RIA' 
+      redPaint_return: '#RIA',
+      greenPaint_return: '#blizzard' 
     };
 
     this.currentPaintingId = null;

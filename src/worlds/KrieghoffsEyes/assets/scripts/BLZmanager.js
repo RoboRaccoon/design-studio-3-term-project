@@ -19,6 +19,8 @@ AFRAME.registerComponent('blz-manager', {
             this.startSledTask();
             this.blzWorld = document.querySelector('#blzWorld');
             this.blzWorld.setAttribute('visible', 'true');
+            this.greenPaint = document.querySelector('#greenPaint');
+            this.greenPaint.setAttribute('material', 'src:#blizzard');
         });
 
         this.el.addEventListener('blz-complete', () =>{
