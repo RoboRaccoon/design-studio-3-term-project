@@ -6,9 +6,11 @@ AFRAME.registerComponent('painting-highlight', {
     var originalColor ='#ffffff';
     // change color and scale up.
     el.addEventListener('mouseenter', function () {
-      el.setAttribute('material', 'emisive', '#ffffff');
+      el.setAttribute('material', 'emisive', '#fbff00');
       el.setAttribute('material', 'emissiveIntensity', '0.1');
       el.object3D.scale.set(1.3, 1.6, 0.071);
+      originalColor = el.getAttribute('material', 'color');
+      let id = el.getAttribute('id');
     });
     // restore to original color and scale.
     el.addEventListener('mouseleave', function () {

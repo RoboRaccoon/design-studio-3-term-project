@@ -13,19 +13,27 @@ window.gameState = window.gameState || {
       
       // function to create and spawn the final room portal.
       this.spawnFinalRoomPortal = function () {
+        let painting = document.createElement('a-entity');
+        painting.setAttribute('position', '-0.91794 0 -3.29468');
+        painting.setAttribute('scale', '20 20 20');
+        painting.setAttribute('rotation', '0 -90 0');
+        painting.setAttribute('id', 'paintingFinal');
+        painting.setAttribute('gltf-model', '#finalPainting_gltf');
+        
         let portal = document.createElement('a-box');
         portal.setAttribute('id', 'finalRoom_portal');
-        portal.setAttribute('position', '-1 1.275 -4.377');
+        portal.setAttribute('position', '-0.91803 1.25061 -3.31844');
         portal.setAttribute('scale', '1 1.3 0.071');
-        portal.setAttribute('rotation', '0 0 0');
+        portal.setAttribute('rotation', '-15 0 0');
         portal.setAttribute('color', '#940000');
         portal.setAttribute('class', 'interactive');
         portal.setAttribute('circles-interactive-object', 'type:highlight');
         portal.setAttribute(
           'material',
-          'color:#ffffff; src:#RIA_gray; shader: standard; transparent: true; emissive: #ffffff; emissiveIntensity: 0;'
+          'side: double; transparent: true; blending: additive; color: #000000; emissive: #fbff00; emissiveIntensity: 0;'
         );
-  
+
+        portal.setAttribute('painting-highlight');
         
         portal.setAttribute('circles-sendpoint', 'target:#finalRoom_checkpoint;');
   
@@ -53,7 +61,8 @@ window.gameState = window.gameState || {
             this.finalRoom = document.querySelector('#finalRoom');
             this.finalRoomPortal = document.querySelector('#finalRoom_portal');
             this.infoPanel = document.querySelector('#infoPanel');
-            
+            this.painting = document.querySelector('#paintingFinal');
+
             if (this.finalRoom) {
               this.finalRoom.setAttribute('visible', 'true');
             }
@@ -62,7 +71,10 @@ window.gameState = window.gameState || {
             }
             if (this.finalRoomPortal) {
                 this.finalRoomPortal.setAttribute('visible', 'false');
-              }
+            }
+            if (this.painting) {
+                this.painting.setAttribute('visible', 'false');
+            }
          
             console.log("New environment created and cabin/infoPanel hidden.");
           });
@@ -72,6 +84,7 @@ window.gameState = window.gameState || {
 
         
         sceneEl.appendChild(portal);
+        sceneEl.appendChild(painting);
         console.log("Final room portal spawned.");
       };
   
