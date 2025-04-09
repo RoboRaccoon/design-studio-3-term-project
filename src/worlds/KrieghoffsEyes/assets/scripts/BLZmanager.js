@@ -24,6 +24,7 @@ AFRAME.registerComponent('blz-manager', {
         });
 
         this.el.addEventListener('blz-complete', () =>{
+          gameState.blizzardDone = true;
           this.taksCompleted++;  
           gameState.blizzardDone = true;
           console.log("summoning portal: " + this.taksCompleted);
@@ -497,7 +498,7 @@ AFRAME.registerComponent('blz-manager', {
         greenPaint.setAttribute('id', 'greenPaint_return');
         greenPaint.setAttribute('class', 'interactive');
         greenPaint.setAttribute('circles-interactive-object', 'type:highlight');
-        greenPaint.setAttribute('environmentProp', 'preset: checkerboard; seed: 123; fog: 0.06; lightPosition: -4.160 1 0; skyType: gradient; skyColor: #0f0c14; horizonColor: #000000 lighting: none; dressing: none;');
+        greenPaint.setAttribute('environmentProp', 'preset: checkerboard; seed: 123; fog: 0.06; lightPosition: -4.160 1 0; skyType: gradient; skyColor: #0f0c14; horizonColor: #000000 lighting: distant; dressing: none;');
         greenPaint.setAttribute('painting-highlight', '');
         greenPaint.setAttribute('material', 'color:#ffffff; src: #blizzard; shader: standard; transparent: true; emissive: #ffffff; emissiveIntensity: 0;');
 

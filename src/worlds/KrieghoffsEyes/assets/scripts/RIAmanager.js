@@ -49,7 +49,7 @@ AFRAME.registerComponent('ria-manager', {
                 skyType: 'gradient',
                 skyColor: '#0f0c14',
                 horizonColor: '#000000',
-                lighting: 'none',
+                lighting: 'distant',
                 dressing: 'none'
             });
         
