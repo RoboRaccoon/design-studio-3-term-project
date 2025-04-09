@@ -10,28 +10,37 @@ AFRAME.registerComponent('vr-controls', {
         const userRig = CIRCLES.getAvatarRigElement();
 
         //get the camera of the rig
-        const userCam = rig.querySelector('.avatar');
+        const userCam = userRig.querySelector('.avatar');
 
         //create vector showing user direction, and flatten/normalize it
         const userDir = new THREE.Vector3();
-        userCam.object3D.getWorldDirection(userDirection);
+        userCam.object3D.getWorldDirection(userDir);
         userDir.y = 0;
         userDir.normalize();
 
         const userPos = userRig.object3D.position.clone();
         const moveDist = 2;
+        var movePaused;
 
-        if (moveEvent.detail.y < -0.95) { 
+        if (moveEvent.detail.y < -0.95 && movePaused == false) { 
             console.log("UP");
-            const forward = direction.clone().multiplyScalar(moveDist);
+            const forward = userDir.clone().multiplyScalar(moveDist);
             const newPos = userPos.add(forward);
             rig.setAttribute('position', newPos);
+            movePaused = true;
+            setTimeout(() => {
+                movePaused = false;
+            }, 1000);
         }
-        if (moveEvent.detail.y > 0.95) { 
+        if (moveEvent.detail.y > 0.95 && movePaused == false) { 
             console.log("DOWN");
-            const backward = direction.clone().multiplyScalar(-1 * moveDist);
+            const backward = userDir.clone().multiplyScalar(-1 * moveDist);
             const newPos = userPos.add(backward);
             rig.setAttribute('position', newPos);
+            movePaused = true;
+            setTimeout(() => {
+                movePaused = false;
+            }, 1000);
         }
     }
 })
