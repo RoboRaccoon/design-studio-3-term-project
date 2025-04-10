@@ -397,7 +397,7 @@ AFRAME.registerComponent('lazy-load-environment', {
 
          //raft building instructions
          const riaRaftInst = document.createElement('a-entity');
-         riaRaftInst.setAttribute('id', 'raftInst');
+         riaRaftInst.setAttribute('id', 'raft_inst');
          riaRaftInst.setAttribute('position', '-18.11358 4.50648 -4.93501');
          riaRaftInst.setAttribute('circles-description', {
            title_text_front:       'Build the Raft!',

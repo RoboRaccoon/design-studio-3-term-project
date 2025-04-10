@@ -892,7 +892,7 @@ AFRAME.registerComponent('blz-lazy-load-environment', {
 
         //sled building instructions
         const blzSledInst = document.createElement('a-entity');
-        blzSledInst.setAttribute('id', 'sledInst');
+        blzSledInst.setAttribute('id', 'sled_inst');
         blzSledInst.setAttribute('position', '-39.19828 0.31165 -3.25616');
         blzSledInst.setAttribute('circles-description', {
           title_text_front:       'Build the Sled!',
