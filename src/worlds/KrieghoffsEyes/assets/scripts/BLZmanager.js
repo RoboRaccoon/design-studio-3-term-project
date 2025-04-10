@@ -877,6 +877,7 @@ AFRAME.registerComponent('blz-lazy-load-environment', {
       const blz_Env = document.querySelector('#blz_environment');
       if (blz_Env) {
         blz_Env.setAttribute('visible', 'true');
+        blzWorld.setAttribute('visible', 'true');
         }
         })
       }
