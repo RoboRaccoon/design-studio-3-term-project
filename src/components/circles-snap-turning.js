@@ -142,7 +142,7 @@ AFRAME.registerComponent('circles-snap-turning', {
         //added on: if thumbstick is moved down
         else if (CONTEXT_AF.trackpadY > threshold) {
             if (canSnapDown === true) {
-                CONTEXT_AF.moveBody(4);
+                CONTEXT_AF.moveBody(2);
                 canSnapDown = false;
                 snapDownTimerFunc = setTimeout(() => { canSnapDown = true }, snapTime);
 
