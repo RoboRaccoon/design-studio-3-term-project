@@ -438,9 +438,9 @@ AFRAME.registerComponent('blz-manager', {
         label_on:             true,
         label_arrow_position: 'down',
         title:                '1800s Single Bit Axe',
-        description:          'These axes where meant for felling and slitting wood - use this axe to clear the way',
-        title_back:           'Some Title',
-        description_back:     'Some description text.',
+        description:          'Bring the axe to the RED target then chop down on the logs! \n\nThese axes where meant for felling and slitting wood - use this axe to clear the way',
+        title_back:           '',
+        description_back:     '',
         //audio:                #some-snd; 
         //volume:               0.4
       });
@@ -863,8 +863,22 @@ AFRAME.registerComponent('blz-lazy-load-environment', {
         })
         blzSnow.setAttribute('id', 'snow_particles');
 
+        //sled building instructions
+        const blzSledInst = document.createElement('a-entity');
+        blzSledInst.setAttribute('id', 'sledInst');
+        blzSledInst.setAttribute('position', '-39.19828 0.31165 -3.25616');
+        blzSledInst.setAttribute('circles-description', {
+          title_text_front:       'Build the Sled!',
+          description_text_front: 'CLICK on all the mini logs to build the sled',
+          title_text_back:        'Clear the Way!',
+          description_text_back:  '1. Grab the AXE \n\n2. Bring it to the RED orb target \n\n3. Then chop down on the LOGS',
+          offset:                 '0 0 0',
+          arrow_position:         'left',
+          lookAtCamera:           'true'
+        });
 
         blzWorld.appendChild(blzEnv);
+        blzWorld.appendChild(blzSledInst);
         if (blzSnow !== undefined) {
           blzWorld.appendChild(blzSnow);
           console.log("snow is defined!");
