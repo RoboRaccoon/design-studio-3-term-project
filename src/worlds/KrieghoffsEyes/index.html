@@ -311,7 +311,7 @@
 
     </a-entity>
     <!-- Info Panel for displaying painting details -->
-    <a-entity id="infoPanel" info-panel position="0 1.6 -2.5" geometry="primitive: plane; width: 1.5; height: 1.8"
+    <a-entity id="infoPanel" info-panel position="60 61.6 -20.5" geometry="primitive: plane; width: 1.5; height: 1.8"
       material="color: #333; shader: flat; side: double" visible="false">
       
       <a-entity geometry="box" id="panelImg" position="0 0.352 0" scale="1.094 1.094 0.007" rotation="0 0 0" material="color:#ffffff; src:#RIA; shader: standard; transparent: true; emissive: #ffffff; emissiveIntensity: 0;"></a-entity>
@@ -326,13 +326,22 @@
     </a-entity>
     
     <a-entity id="finalRoom" visible="false">
-      <a-entity position="-0.25576 3.85425 0.86864" light="angle: 90; color: #ffffff; decay: 4.27; intensity: 18.97; type: spot; castShadow: true" rotation="-79.70530479623908 -0.0005729577951308233 0" scale="0.05044 0.05044 0.05044" id="finalLight"></a-entity>
-      <a-entity geometry="primitive:box" material="color:white; metalness:1.000;" scale="5.52092 0.26447 4.34301" position="-0.02933 0.10843 0" id="finalPedestal"></a-entity>
-      <a-entity geometry="" material="color:white; metalness:1;" scale="3.2076 0.63307 1.88906" position="-0.02933 0.1669 0" id="finalPedestal-2"></a-entity>
-      <a-box position="0.89307 1.31338 -4.2979" scale="1 1.3 0.071"
+      <a-entity position="-0.25576 6.772 1.185" light="angle: 90; color: #ffffff; decay: 4.27; intensity: 18.97; type: spot; castShadow: true" rotation="-79.70530479623908 -0.0005729577951308233 0" scale="0.05044 0.05044 0.05044" id="finalLight"></a-entity>
+      <a-entity geometry="primitive:box" material="color:white; metalness:1.000;" scale="5.52092 0.26447 4.34301" position="-0.02933 0.10843 0" id="finalPedestal">
+        <a-entity geometry="" material="color: white; emissive: #ffffff; metalness: 1" scale="4.31625 0.02817 0.27729" position="-2.662 0 -0.04069" id="finalPedestal-7" rotation="0 90 0"></a-entity>
+        <a-entity geometry="" material="color: white; emissive: #ffffff; metalness: 1" scale="4.31625 0.02817 0.27729" position="2.55727 0 -0.04069" id="finalPedestal-8" rotation="0 90 0"></a-entity>
+        <a-entity geometry="" material="color: white; emissive: #ffffff; metalness: 1" scale="5.48763 0.02817 0.27729" position="-0.0533 0 -2.07478" id="finalPedestal-9"></a-entity>
+        <a-entity geometry="" material="color: white; emissive: #ffffff; metalness: 1" scale="5.48763 0.02817 0.27729" position="-0.0533 0 2.01912" id="finalPedestal-10"></a-entity>
+      </a-entity>
+      <a-entity geometry="" material="color:white; metalness:1;" scale="3.2076 0.63307 1.88906" position="-0.02933 0.1669 0" id="finalPedestal-2">
+        <a-entity geometry="height: 9" material="color: white; emissive: #ffffff; metalness: 1" scale="3.20988 0.04292 0.27729" position="-0.02365 -0.07949 2.00278" id="finalPedestal-3"></a-entity>
+        <a-entity geometry="height: 9" material="color: white; emissive: #ffffff; metalness: 1" scale="3.2076 0.04292 0.27729" position="-0.02133 -0.079 -1.6331" id="finalPedestal-4"></a-entity>
+        <a-entity geometry="height: 13.4" material="color: white; emissive: #ffffff; metalness: 1" scale="3.39457 0.02817 0.27729" position="-1.50133 -0.079 0.18188" id="finalPedestal-5" rotation="0 90 0"></a-entity>
+        <a-entity geometry="height: 13.4" material="color: white; emissive: #ffffff; metalness: 1" scale="3.395 0.02817 0.27729" position="1.43778 -0.0777 0.19798" id="finalPedestal-6" rotation="0 90 0"></a-entity>
+      </a-entity>
+      <a-box position="0.027 3.276 -0.062" scale="3.367 4.377 0.239"
         rotation="-15.487622160181282 0 0" color="#940000" id="finalPaint"
         environmentProp="preset: forest; groundYScale: 0.000; seed: 222; skyType: atmosphere; lightPosition: 0 4.88 25; lighting: distant; dressing: none;"
-        painting-highlight
         material="color:#ffffff; src:#finalRoom_img; shader: standard; transparent: true; roughness: 1; emissive: #ffffff; emissiveIntensity: 0;"></a-box>
     </a-entity>
     

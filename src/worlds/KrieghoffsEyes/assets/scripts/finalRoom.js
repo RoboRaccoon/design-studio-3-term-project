@@ -79,7 +79,7 @@ window.gameState = window.gameState || {
             console.log("New environment created and cabin/infoPanel hidden.");
           });
 
-          this.finalPaint.setAttribute("animation__animup", "property: position.y; from: 1.233; to: 2.1; dur: 16000; easing: linear; loop: false;");
+          this.finalPaint.setAttribute("animation__animup", "property: position.y; from: 3.288; to: 4.757; dur: 16000; easing: linear; autoplay: true; loop: true;");
           
 
         

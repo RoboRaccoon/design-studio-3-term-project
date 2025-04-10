@@ -94,6 +94,14 @@ AFRAME.registerComponent('ria-manager', {
             
         
             console.log("All spawned objects removed. Environment reset.");
+
+            let infoPanel = document.querySelector('#infoPanel');
+            if (infoPanel) {
+              infoPanel.setAttribute('position', '0 1.6 -2.5');
+              infoPanel.setAttribute('rotation', '0 0 0');
+              infoPanel.object3D.scale.set(1, 1, 1);
+              infoPanel.setAttribute('visible', false);
+            }
         });
     },
 

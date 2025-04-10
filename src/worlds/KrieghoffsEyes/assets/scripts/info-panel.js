@@ -71,7 +71,11 @@ AFRAME.registerComponent('info-panel', {
     this.titleEl.setAttribute('text', 'value', info.title);
     this.descriptionEl.setAttribute('text', 'value', info.description);
 
-    
+    var button = this.el.querySelector('#button');
+    if (button) {
+      button.setAttribute('position', '0.219 -0.387 0.030');
+    }
+
     var imageSrc = "";
     switch (paintingId) {
       case "redPaint":

@@ -22,6 +22,12 @@ AFRAME.registerComponent('painting-highlight', {
     // On click emit painting selected to info panel
     el.addEventListener('click', function () {
       el.emit('paintingSelected', { id: el.id });
+
+      let gameManager = document.querySelector("#GameManager");
+      if (gameManager) {
+        console.log("tasks-complete was sent");
+        gameManager.emit('tasks-complete');
+      }
     });
   }
 });
@@ -32,19 +38,16 @@ AFRAME.registerComponent('highlight-button', {
       let scale = el.getAttribute('scale');
       // Save the original color to restore on mouse leave.
       var originalColor = el.getAttribute('color');
-      // On hover: change color and scale up.
+      // change color and scale up.
       el.addEventListener('mouseenter', function () {
         el.setAttribute('material', 'color', '#ff0000');
         el.object3D.scale.set(scale.x * 1.2, scale.y * 1.2, scale.z * 1.2);
       });
-      // On exit: restore original color and scale.
       el.addEventListener('mouseleave', function () {
         el.setAttribute('material', 'color', '#a22020');
         el.object3D.scale.set(0.082, 0.082, 0.08346);
       });
-      // On click: emit a custom event to signal selection.
       el.addEventListener('click', function () {
-        // Optionally, add a “clicked” state if you want to prevent repeated clicks.
         el.emit('paintingSelected', { id: el.id });
       });
 
