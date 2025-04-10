@@ -130,7 +130,7 @@ AFRAME.registerComponent('circles-snap-turning', {
         //added on: if thumbstick is moved up
         else if (CONTEXT_AF.trackpadY < -threshold) {
             if (canSnapUp === true) {
-                CONTEXT_AF.moveBody(1.5);
+                CONTEXT_AF.moveBody(-1.5);
                 canSnapUp = false;
                 snapUpTimerFunc = setTimeout(() => { canSnapUp = true }, snapTime);
 
