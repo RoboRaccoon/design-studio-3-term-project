@@ -6,6 +6,7 @@ AFRAME.registerComponent('blz-manager', {
         this.scene = this.el.sceneEl;
         this.pedestal = null;
         this.navmesh = document.querySelector("#nav-mesh");
+
         this.cabin = document.querySelector("#Cabin");
 
         //track task completion
@@ -46,6 +47,15 @@ AFRAME.registerComponent('blz-manager', {
             this.blzWorld = document.querySelector('blzWorld');
             this.environment = document.querySelector('#environment');
            
+            const blzAudio = document.querySelector('#blizzard_ambient');
+            if (blzAudio) {
+              blzAudio.pause();
+              blzAudio.currentTime = 0;
+            }
+
+            const studioAudio = document.querySelector('#studio_ambient');
+            if (studioAudio) studioAudio.play();
+
             // Hide Blz world, show cabin 
             blzWorld.setAttribute('visible', 'false');
             this.cabin.setAttribute('visible', 'true');
@@ -61,12 +71,6 @@ AFRAME.registerComponent('blz-manager', {
                 lighting: 'none',
                 dressing: 'none'
             });
-
-            const blzAudio = document.querySelector('#blizzard_ambient');
-            if (blzAudio) {
-              blzAudio.pause();
-              blzAudio.currentTime = 0;
-            }
 
             // Remove all sled parts from the scene
             this.sledParts.forEach(sledPart => {
@@ -154,11 +158,6 @@ AFRAME.registerComponent('blz-manager', {
         this.navmesh.removeAttribute('nav-mesh');
         this.navmesh.setAttribute('nav-mesh', '');
         this.riaWorld.setAttribute('visible', 'false');
-
-        const blzAudio = document.querySelector('#blizzard_ambient');
-        if (blzAudio) {
-          blzAudio.play();
-        }
 
     },
    
@@ -861,14 +860,8 @@ AFRAME.registerComponent('blz-lazy-load-environment', {
         const blzSnow = document.createElement('a-entity');
         blzSnow.setAttribute('particle-system', {
           preset: 'snow', 
-          particleCount: 100000,
-          accelerationValue: '0 0 0',
-          accelerationSpread: '0.2 0 0.2',
-          velocityValue: '0 100 0',
-          velocitySpread: '2 0 2', 
-          color: '#FFFFFF'
+          particleCount: 5000
         })
-        blzSnow.setAttribute('position', '-85.41785 27.11393 0');
         blzSnow.setAttribute('id', 'snow_particles');
 
 
