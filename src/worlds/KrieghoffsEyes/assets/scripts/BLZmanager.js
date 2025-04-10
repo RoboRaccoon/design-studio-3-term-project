@@ -157,7 +157,6 @@ AFRAME.registerComponent('blz-manager', {
         this.navmesh.setAttribute('scale', '64.230 0.087 25.960');
         this.navmesh.removeAttribute('nav-mesh');
         this.navmesh.setAttribute('nav-mesh', '');
-        this.riaWorld.setAttribute('visible', 'false');
 
     },
    
