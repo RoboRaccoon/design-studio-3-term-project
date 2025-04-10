@@ -10,7 +10,8 @@
 
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-particle-system-component@1.2.0/dist/aframe-particle-system-component.min.js"></script>
 
-  <script src="assets/scripts/change-environment.js"></script>
+    <script src="assets/scripts/change-environment.js"></script>
+    <script src="assets/scripts/ambient-audio-manager.js"></script>
     <script src="assets/scripts/RIAmanager.js"></script>
     <script src="assets/scripts/BLZmanager.js"></script>
     <script src="assets/scripts/painting-highlight.js"></script>
@@ -157,8 +158,8 @@
           <a-entity light="type: point; color: #FF8C42; intensity: 2.5; distance: 10; decay: 1.2; castShadow: true" position=".7 1.8 -3"></a-entity>
 
           <!-- Music -->
-          <a-entity position="0 0 0" circles-sound="type:music; src:#studio_ambient; autoplay:true; loop:true; volume:0.2;" sound="autoplay: true; positional: false; loop: true;"></a-entity>
-              
+          <a-entity ambient-audio-manager></a-entity>
+                        
           <!-- Room -->
           <a-entity id="room" gltf-model="#room" position="0 0.001 0"></a-entity>
 

@@ -1,18 +1,21 @@
 AFRAME.registerComponent('blz-manager', {
     init: function () {
+
+        function stopAllAmbients() {
+          if (window.stopAllAmbients) window.stopAllAmbients();
+        }
+
         this.sledParts = [];
         this.logs = [];
         this.sledPartsPlaced = 0;
         this.scene = this.el.sceneEl;
         this.pedestal = null;
         this.navmesh = document.querySelector("#nav-mesh");
-
         this.cabin = document.querySelector("#Cabin");
 
         //track task completion
         this.taksCompleted = 0;
         this.totalTasks = 2;
-
 
         // Wait for the green painting click event
         this.el.addEventListener('blz-painting-clicked', () => {
@@ -46,15 +49,16 @@ AFRAME.registerComponent('blz-manager', {
         this.el.addEventListener('return-clicked', () => {
             this.blzWorld = document.querySelector('blzWorld');
             this.environment = document.querySelector('#environment');
-           
+            
+            if (window.playStudioAmbient) {
+              window.playStudioAmbient();
+            }
+            
             const blzAudio = document.querySelector('#blizzard_ambient');
             if (blzAudio) {
               blzAudio.pause();
               blzAudio.currentTime = 0;
             }
-
-            const studioAudio = document.querySelector('#studio_ambient');
-            if (studioAudio) studioAudio.play();
 
             // Hide Blz world, show cabin 
             blzWorld.setAttribute('visible', 'false');
@@ -157,6 +161,23 @@ AFRAME.registerComponent('blz-manager', {
         this.navmesh.setAttribute('scale', '64.230 0.087 25.960');
         this.navmesh.removeAttribute('nav-mesh');
         this.navmesh.setAttribute('nav-mesh', '');
+
+        stopAllAmbients();
+
+        const blzAudio = document.querySelector('#blizzard_ambient');
+        if (blzAudio) {
+          const playBlz = () => {
+            blzAudio.play().catch(e => {
+              console.warn('Blizzard audio play failed:', e);
+            });
+          };
+        
+          if (blzAudio.readyState >= 2) {
+            playBlz();
+          } else {
+            blzAudio.addEventListener('canplaythrough', playBlz, { once: true });
+          }
+        }
 
     },
    

@@ -1,5 +1,10 @@
 AFRAME.registerComponent('ria-manager', {
     init: function () {
+
+        function stopAllAmbients() {
+          if (window.stopAllAmbients) window.stopAllAmbients();
+        }
+
         this.logs = [];
         this.logsPlaced = 0;
         this.scene = this.el.sceneEl;
@@ -35,15 +40,16 @@ AFRAME.registerComponent('ria-manager', {
             this.riaWorld = document.querySelector('#riaWorld');
             this.environment = document.querySelector('#environment');
            
+            if (window.playStudioAmbient) {
+              window.playStudioAmbient();
+            }
+            
             const riaAudio = document.querySelector('#ria_ambient');
             if (riaAudio) {
               riaAudio.pause();
               riaAudio.currentTime = 0;
             }
 
-            const studioAudio = document.querySelector('#studio_ambient');
-            if (studioAudio) studioAudio.play();
-            
             // Hide Ria world, show cabin
             this.riaWorld.setAttribute('visible', 'false');
             this.cabin.setAttribute('visible', 'true');
@@ -123,6 +129,13 @@ AFRAME.registerComponent('ria-manager', {
         this.navmesh.setAttribute('nav-mesh', '');
         this.riaWorld.setAttribute('visible', 'true');
         // this.navmesh.removeAttribute('geometry');
+
+        stopAllAmbients();
+
+        const riaAudio = document.querySelector('#ria_ambient');
+        if (riaAudio) {
+          riaAudio.play();
+        }
        
     },
    
