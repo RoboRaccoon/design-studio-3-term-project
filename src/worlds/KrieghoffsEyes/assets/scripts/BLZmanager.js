@@ -148,7 +148,7 @@ AFRAME.registerComponent('blz-manager', {
         this.navmesh.setAttribute('scale', '64.230 0.087 25.960');
         this.navmesh.removeAttribute('nav-mesh');
         this.navmesh.setAttribute('nav-mesh', '');
-        this.riaWorld.setAttribute('visible', 'false');
+        //this.riaWorld.setAttribute('visible', 'false');
     },
    
     spawnParts: function () {
@@ -873,6 +873,7 @@ AFRAME.registerComponent('blz-lazy-load-environment', {
       const blz_Env = document.querySelector('#blz_environment');
       if (blz_Env) {
         blz_Env.setAttribute('visible', 'true');
+        blzWorld.setAttribute('visible', 'true');
         }
         })
       }
