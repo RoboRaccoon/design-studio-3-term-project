@@ -97,16 +97,16 @@ window.gameState = window.gameState || {
       };
   
       // Listen for the RIA task event.
-      this.el.addEventListener('ria-complete', () => {
+      this.el.addEventListener('ria-return-clicked', () => {
         gameState.RIAdone = true;
-        console.log("RIA task completed.");
+        console.log("RIA task completed and returned to studio.");
         this.checkAndSpawnPortal();
       });
   
       // Listen for the Blizzard task event.
-      this.el.addEventListener('blz-complete', () => {
+      this.el.addEventListener('blz-return-clicked', () => {
         gameState.blizzardDone = true;
-        console.log("Blizzard task completed.");
+        console.log("Blizzard task completed and returned to studio.");
         this.checkAndSpawnPortal();
       });
     }

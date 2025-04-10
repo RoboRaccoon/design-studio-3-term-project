@@ -86,7 +86,7 @@ AFRAME.registerComponent('voting-listener', {
               const redPaint_return = document.querySelector("#redPaint_return");
               redPaint_return.setAttribute('circles-sendpoint', 'target:#checkpoint_red_return;');
               
-              riaManager.emit('return-clicked');
+              riaManager.emit('ria-return-clicked');
               setTimeout(() => {
                 winningEntity.removeAttribute("circles-sendpoint");
                 self.votes = [];  // <-- Reset votes here
@@ -96,7 +96,7 @@ AFRAME.registerComponent('voting-listener', {
             if (winner === "greenPaint_return") {
               const greenPaint_return = document.querySelector("#greenPaint_return");
               greenPaint_return.setAttribute('circles-sendpoint', 'target:#checkpoint_green_return;');
-              riaManager.emit('return-clicked');
+              riaManager.emit('blz-return-clicked');
               setTimeout(() => {
                 winningEntity.removeAttribute("circles-sendpoint");
                 self.votes = [];  // <-- Reset votes here
@@ -186,7 +186,7 @@ AFRAME.registerComponent('voting-listener', {
             if (data.winner === "redPaint_return") {
               const redPaint_return = document.querySelector("#redPaint_return");
               redPaint_return.setAttribute('circles-sendpoint', 'target:#checkpoint_red_return;');
-              riaManager.emit('return-clicked');
+              riaManager.emit('ria-return-clicked');
               setTimeout(() => {
                 winningEntity.removeAttribute("circles-sendpoint");
                 self.votes = [];  // <-- Reset votes here
@@ -196,7 +196,7 @@ AFRAME.registerComponent('voting-listener', {
             if (data.winner === "greenPaint_return") {
               const greenPaint_return = document.querySelector("#greenPaint_return");
               greenPaint_return.setAttribute('circles-sendpoint', 'target:#checkpoint_green_return;');
-              riaManager.emit('return-clicked');
+              riaManager.emit('blz-return-clicked');
               setTimeout(() => {
                 winningEntity.removeAttribute("circles-sendpoint");
                 self.votes = [];  // <-- Reset votes here

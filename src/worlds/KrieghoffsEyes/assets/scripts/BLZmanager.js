@@ -46,7 +46,7 @@ AFRAME.registerComponent('blz-manager', {
           }
         });
 
-        this.el.addEventListener('return-clicked', () => {
+        this.el.addEventListener('blz-return-clicked', () => {
             this.blzWorld = document.querySelector('blzWorld');
             this.environment = document.querySelector('#environment');
             

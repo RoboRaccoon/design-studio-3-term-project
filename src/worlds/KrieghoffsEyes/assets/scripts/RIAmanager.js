@@ -36,7 +36,7 @@ AFRAME.registerComponent('ria-manager', {
             this.redPaint.setAttribute('material', 'src:#RIA');
         });
 
-        this.el.addEventListener('return-clicked', () => {
+        this.el.addEventListener('ria-return-clicked', () => {
             this.riaWorld = document.querySelector('#riaWorld');
             this.environment = document.querySelector('#environment');
            
@@ -62,7 +62,7 @@ AFRAME.registerComponent('ria-manager', {
                 skyType: 'gradient',
                 skyColor: '#0f0c14',
                 horizonColor: '#000000',
-                lighting: 'distant',
+                lighting: 'none',
                 dressing: 'none'
             });
         
@@ -216,7 +216,7 @@ AFRAME.registerComponent('ria-manager', {
         redPaint.setAttribute('id', 'redPaint_return');
         redPaint.setAttribute('class', 'interactive');
         redPaint.setAttribute('circles-interactive-object', 'type:highlight');
-        redPaint.setAttribute('environmentProp', 'preset: forest; groundYScale: 0.000; seed: 222; skyType: atmosphere; lightPosition: 0 4.88 25; lighting: distant; dressing: none;');
+        redPaint.setAttribute('environmentProp', 'preset: checkerboard; seed: 123; fog: 0.06; lightPosition: -4.160 1 0; skyType: gradient; skyColor: #0f0c14; horizonColor: #000000 lighting: distant; dressing: none;');
         redPaint.setAttribute('painting-highlight', '');
         redPaint.setAttribute('material', 'color:#ffffff; src: #RIA; shader: standard; transparent: true; emissive: #ffffff; emissiveIntensity: 0;');
 
