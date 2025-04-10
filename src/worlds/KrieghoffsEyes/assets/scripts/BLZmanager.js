@@ -6,7 +6,6 @@ AFRAME.registerComponent('blz-manager', {
         this.scene = this.el.sceneEl;
         this.pedestal = null;
         this.navmesh = document.querySelector("#nav-mesh");
-
         this.cabin = document.querySelector("#Cabin");
 
         //track task completion
@@ -62,6 +61,12 @@ AFRAME.registerComponent('blz-manager', {
                 lighting: 'none',
                 dressing: 'none'
             });
+
+            const blzAudio = document.querySelector('#blizzard_ambient');
+            if (blzAudio) {
+              blzAudio.pause();
+              blzAudio.currentTime = 0;
+            }
 
             // Remove all sled parts from the scene
             this.sledParts.forEach(sledPart => {
@@ -148,7 +153,13 @@ AFRAME.registerComponent('blz-manager', {
         this.navmesh.setAttribute('scale', '64.230 0.087 25.960');
         this.navmesh.removeAttribute('nav-mesh');
         this.navmesh.setAttribute('nav-mesh', '');
-        //this.riaWorld.setAttribute('visible', 'false');
+        this.riaWorld.setAttribute('visible', 'false');
+
+        const blzAudio = document.querySelector('#blizzard_ambient');
+        if (blzAudio) {
+          blzAudio.play();
+        }
+
     },
    
     spawnParts: function () {

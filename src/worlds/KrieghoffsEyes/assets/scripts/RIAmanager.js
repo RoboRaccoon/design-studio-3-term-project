@@ -35,8 +35,6 @@ AFRAME.registerComponent('ria-manager', {
             this.riaWorld = document.querySelector('#riaWorld');
             this.environment = document.querySelector('#environment');
            
-            
-            
             // Hide Ria world, show cabin
             this.riaWorld.setAttribute('visible', 'false');
             this.cabin.setAttribute('visible', 'true');
@@ -52,10 +50,13 @@ AFRAME.registerComponent('ria-manager', {
                 lighting: 'distant',
                 dressing: 'none'
             });
+
+            const riaAudio = document.querySelector('#ria_ambient');
+            if (riaAudio) {
+              riaAudio.pause();
+              riaAudio.currentTime = 0;
+            }
         
-            
-
-
             // Remove all logs from the scene
             this.logs.forEach(log => {
                 if (log.parentNode) {
@@ -119,6 +120,11 @@ AFRAME.registerComponent('ria-manager', {
         this.navmesh.setAttribute('nav-mesh', '');
         this.riaWorld.setAttribute('visible', 'true');
         // this.navmesh.removeAttribute('geometry');
+
+        const riaAudio = document.querySelector('#ria_ambient');
+        if (riaAudio) {
+          riaAudio.play();
+        }
        
     },
    
