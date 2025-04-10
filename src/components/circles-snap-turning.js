@@ -35,6 +35,21 @@ AFRAME.registerComponent('circles-snap-turning', {
       this.el.object3D.rotation.y += THREE.MathUtils.degToRad(angleDeg);
     }
   },
+  //added on, this moves the user forward or backward
+  moveBody: function(moveUnits) 
+  {
+    if (this.data.enabled === true) {
+      const userDir = new THREE.Vector3();
+      this.el.object3D.getWorldDirection(userDir);
+      userDir.y = 0;
+      userDir.normalize();
+      const userPos = this.el.object3D.position.clone();
+      this.el.object3D.position.add(userDir)
+      const newDir = userDir.clone().multiplyScalar(moveUnits);
+      this.el.object3D.position.add(newDir);
+    }
+  },
+
   keyboard_detection: function () {
     const CONTEXT_AF = this;
 
@@ -80,6 +95,10 @@ AFRAME.registerComponent('circles-snap-turning', {
     let snapLeftTimerFunc   = null;
     let canSnapRight        = true;    //set a max time on this
     let snapRightTimerFunc  = null;
+    let canSnapUp         = true;    //set a max time on this
+    let snapUpTimerFunc   = null;
+    let canSnapDown        = true;    //set a max time on this
+    let snapDownTimerFunc  = null;
 
     //Oculusgo / gearVR / trackpad controllers ////
     CONTEXT_AF.el.addEventListener('thumbstickmoved', function(event) {
@@ -108,6 +127,30 @@ AFRAME.registerComponent('circles-snap-turning', {
                 clearTimeout( snapLeftTimerFunc );
             }
         }
+        //added on: if thumbstick is moved up
+        else if (CONTEXT_AF.trackpadY < -threshold) {
+            if (canSnapUp === true) {
+                CONTEXT_AF.moveBody(1.5);
+                canSnapUp = false;
+                snapUpTimerFunc = setTimeout(() => { canSnapUp = true }, snapTime);
+
+                //clear opposite direction
+                canSnapDown = true;
+                clearTimeout( snapDownTimerFunc );
+            }
+        }
+        //added on: if thumbstick is moved down
+        else if (CONTEXT_AF.trackpadY > threshold) {
+            if (canSnapDown === true) {
+                CONTEXT_AF.moveBody(1.5);
+                canSnapDown = false;
+                snapDownTimerFunc = setTimeout(() => { canSnapDown = true }, snapTime);
+
+                //clear opposite direction
+                canSnapUp = true;
+                clearTimeout( snapUpTimerFunc );
+        }
+      }
     });
   },
   touchscreen_detection: function () {
