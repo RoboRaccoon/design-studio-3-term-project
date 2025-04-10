@@ -5,6 +5,7 @@ AFRAME.registerComponent('blz-manager', {
         this.sledPartsPlaced = 0;
         this.scene = this.el.sceneEl;
         this.pedestal = null;
+        this.navmesh = document.querySelector("#nav-mesh");
 
         this.cabin = document.querySelector("#Cabin");
 
@@ -120,6 +121,16 @@ AFRAME.registerComponent('blz-manager', {
               axeTarget.parentNode.removeChild(axeTarget);
             }
 
+            this.navmesh.setAttribute('visible', 'false');
+            this.navmesh.setAttribute('id', 'nav-mesh');
+            this.navmesh.setAttribute('geometry', 'primitive: box');
+            this.navmesh.setAttribute('scale', '11 0.05 14.6');
+            this.navmesh.setAttribute('position', '0 0.04 0');
+            this.navmesh.removeAttribute('rotation'); // if it had a rotation previously
+            this.navmesh.removeAttribute('nav-mesh');
+            this.navmesh.setAttribute('nav-mesh', '');
+            
+
             console.log("All spawned objects removed. Environment reset.");
         });
     },
@@ -132,6 +143,12 @@ AFRAME.registerComponent('blz-manager', {
         this.spawnAxe();
         this.spawnAxeTarget();
         this.cabin.setAttribute('visible', 'false');
+        this.navmesh.setAttribute('position', '-48.467 -2.164 -1.994');
+        this.navmesh.setAttribute('rotation', '2.860 0.260 3.320');
+        this.navmesh.setAttribute('scale', '64.230 0.087 25.960');
+        this.navmesh.removeAttribute('nav-mesh');
+        this.navmesh.setAttribute('nav-mesh', '');
+        this.riaWorld.setAttribute('visible', 'false');
     },
    
     spawnParts: function () {

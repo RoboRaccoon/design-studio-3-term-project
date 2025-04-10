@@ -117,7 +117,7 @@ AFRAME.registerComponent('ria-manager', {
         this.navmesh.setAttribute('scale', '295.198 0.087 33.998');
         this.navmesh.removeAttribute('nav-mesh');
         this.navmesh.setAttribute('nav-mesh', '');
-        this.riaWorld.setAttribute('visible', 'true');
+        this.riaWorld.setAttribute('visible', 'false');
         // this.navmesh.removeAttribute('geometry');
        
     },
