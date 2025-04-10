@@ -879,9 +879,15 @@ AFRAME.registerComponent('blz-lazy-load-environment', {
 
         const blzSnow = document.createElement('a-entity');
         blzSnow.setAttribute('particle-system', {
-          preset: 'snow', 
-          particleCount: 5000
+          preset: 'snow',
+          particleCount: 100000,
+          accelerationValue: '0 0 0',
+          accelerationSpread: '0.2 0 0.2',
+          velocityValue: '0 100 0',
+          velocitySpread: '2 0 2', 
+          color: '#FFFFFF'
         })
+        blzSnow.setAttribute('position', '-85.41785 27.11393 0');
         blzSnow.setAttribute('id', 'snow_particles');
 
         //sled building instructions
