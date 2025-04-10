@@ -7,14 +7,14 @@ AFRAME.registerComponent('info-panel', {
       redPaint: { x: 0.83307, y: 1.31338, z: -4.2279 },
       greenPaint: { x: -2.5964, y: 1.33563, z: -4.01162 },
       redPaint_return: { x: -0.644, y: 3.046, z: -18.630 },
-      greenPaint_return: { x: -51.685, y: -0.34, z: -8.8}
+      greenPaint_return: { x: -52.46613, y: -0.54364, z: -0.20671}
     };
 
     this.panelRotation = {
       redPaint: { x:-15.487622160181282, y:-38.13320605493194, z:0.3472124238492789},
       greenPaint: { x: -15.513978218757302, y: 42.626914042142985, z: 0.9035544429213082 },
       redPaint_return: { x: -15.487622160181282, y: -38.13320605493194, z: 0.3472124238492789 },
-      greenPaint_return: { x: -15, y: 90, z: -8.7 }
+      greenPaint_return: { x: -14.349155021256337, y: 85.58213290089593, z: 8.614993407587058 }
     }
 
     this.paintingInfo = {
@@ -22,7 +22,7 @@ AFRAME.registerComponent('info-panel', {
       greenPaint: { title: 'The Blizzard', description: '"Clear the debris and fix the sled!"' },
       bluePaint: { title: 'Blue Painting', description: 'A blue painting.' },
       redPaint_return: { title: 'Return to the studio', description: '' },
-      greenPaint_return: { title: 'Green Painting', description: '' } 
+      greenPaint_return: { title: 'Return to the studio', description: '' } 
     };
     
     this.paintingImages = {

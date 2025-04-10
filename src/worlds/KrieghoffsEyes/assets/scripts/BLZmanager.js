@@ -154,17 +154,17 @@ AFRAME.registerComponent('blz-manager', {
     spawnParts: function () {
         const blzWorld = document.querySelector('#blzWorld');
         const positions = [
-            { x: -45, y: 0, z: 0 },
-            { x: -45, y: 0, z: 1 },
-            { x: -45, y: 0, z: 2 },
-            { x: -45, y: 0, z: 3 }
+            { x: -41.63873, y: -1.15221, z: -3.30849 },
+            { x: -42.30105, y: -1.76438, z: 1.44141 },
+            { x: -46.25722, y: -1.14618, z: -2.52772 },
+            { x: -45.87625, y: -1.66984, z: 0.92314 }
         ];
 
         const rotations = [
-            { x: 0, y: 0, z: 0 },
-            { x: 0, y: 0, z: 0 },
-            { x: 0, y: 0, z: 0 },
-            { x: 0, y: 0, z: 0 }
+            { x: 3.660054395295699, y: -45.116988619781544, z: -3.66807580442753 },
+            { x: -0.5133701844372176, y: 46.957329057741745, z: 7.557313317775558 },
+            { x: -5.512999904748782, y: 51.41780549283521, z: 4.383127132750798 },
+            { x: 6.0647582614597635, y: -36.55871803391244, z: -4.479957000127906 }
         ];
 
         positions.forEach((pos, index) => {
@@ -200,17 +200,17 @@ AFRAME.registerComponent('blz-manager', {
     spawnLogs: function () {
       const blzWorld = document.querySelector('#blzWorld');
       const positions = [
-          { x: -45, y: 0.4, z: -2 },
-          { x: -45, y: 0.5, z: -2 },
-          { x: -45, y: 0.6, z: -2 },
-          { x: -45, y: 0.7, z: -2 }
+          { x: -50.45323, y: -1.79637, z: 0.84713 },
+          { x: -51.107, y: -1.75269, z: 0.65344 },
+          { x: -50.42501, y: -1.09841, z: 1.1003 },
+          { x: -50.00895, y: -0.9721, z: 0.83795 }
       ];
 
       const rotations = [
-          { x: 0, y: 90, z: 0 },
-          { x: 0, y: 90, z: 0 },
-          { x: 0, y: 90, z: 0 },
-          { x: 0, y: 90, z: 0 }
+          { x: 0.0492743703812508, y: 89.43584703094585, z: 11.17095813166566 },
+          { x: 0, y: 64.06642177814327, z: 16.983042005472733 },
+          { x: 0.3139808717316911, y: 98.94981121909318, z: -1.9956120004406572 },
+          { x: 0.39190313186948306, y: 104.2628488533413, z: -1.5418294266970454 }
       ];
 
       positions.forEach((pos, index) => {
@@ -435,7 +435,7 @@ AFRAME.registerComponent('blz-manager', {
         //audio:                #some-snd; 
         //volume:               0.4
       });
-      this.axe.setAttribute('position', '-45 1 -1');
+      this.axe.setAttribute('position', '-48.9296 -1.96162 2.65773');
       //for collision
       this.axe.setAttribute('static-body', '');
       //we're trying raycaster to detct collision - cuz 
@@ -448,7 +448,7 @@ AFRAME.registerComponent('blz-manager', {
       this.axeTarget.setAttribute('id', 'axeTarget');
       this.axeTarget.setAttribute('geometry', 'primitive: sphere; radius: 0.25');
       this.axeTarget.setAttribute('material', 'opacity: 0.5; transparent: true; color: #ff0000;');
-      this.axeTarget.setAttribute('position', '-45 2 -2');
+      this.axeTarget.setAttribute('position', '-50.18852 0.182 -0.359');
       //for collision detection with axe
       this.axeTarget.setAttribute('axe-target-trigger', '');
       //be user to have mass = 0 so it doesn't fly away - by default it's 5
@@ -478,7 +478,8 @@ AFRAME.registerComponent('blz-manager', {
         this.pedestal = document.createElement('a-entity'); 
         this.pedestal.setAttribute('id', 'sledPedestal');
         this.pedestal.setAttribute('geometry', {primitive: 'box', width: 3, height: 0.3, depth: 3});
-        this.pedestal.setAttribute('position', '-52.048 -0.9 -5.1');
+        this.pedestal.setAttribute('position', '-43.66553 -1.51262 -0.69148');
+        this.pedestal.setAttribute('rotation', '8.90892075648917 0 0');
         // this.pedestal.setAttribute('width', '3');
         // this.pedestal.setAttribute('height', '0.3');
         // this.pedestal.setAttribute('depth', '3');
@@ -486,7 +487,7 @@ AFRAME.registerComponent('blz-manager', {
         this.pedestal.setAttribute('sled-pedestal-trigger', '');
     
         let sled = document.createElement('a-entity');
-        sled.setAttribute('position', `-60 0.3 0`);
+        sled.setAttribute('position', `-43.58566 -1.57118 -0.72125`);
 
         sled.setAttribute('id', `sled`);
         sled.setAttribute('visible', 'true');
@@ -494,7 +495,7 @@ AFRAME.registerComponent('blz-manager', {
         sled.setAttribute('material', 'color: brown'); // Material needs to be separate
         
         sled.setAttribute('scale', '0.5 0.5 0.5'); // Scale down by half in all directions
-        sled.setAttribute('rotation', '0 0 3.7');
+        sled.setAttribute('rotation', '10.304645945427856 0 2.0890041210469814');
         
         // Make it a physics trigger
         this.pedestal.setAttribute('dynamic-body', 'mass: 0;'); // A-Frame physics component
@@ -508,9 +509,9 @@ AFRAME.registerComponent('blz-manager', {
         // Create the a-box element
         const blzWorld = document.querySelector('#blzWorld');
         let greenPaint = document.createElement('a-box');
-        greenPaint.setAttribute('position', '-52 -0.34 -8.8');
+        greenPaint.setAttribute('position', '-52.56613 -0.54364 -0.20671');
         greenPaint.setAttribute('scale', '1 1.3 0.071');
-        greenPaint.setAttribute('rotation', '-15 90 -8.7');
+        greenPaint.setAttribute('rotation', '-14.349155021256337 85.58213290089593 8.614993407587058');
         greenPaint.setAttribute('color', '#940000');
         greenPaint.setAttribute('id', 'greenPaint_return');
         greenPaint.setAttribute('class', 'interactive');
@@ -526,8 +527,8 @@ AFRAME.registerComponent('blz-manager', {
         painting1.setAttribute('id', 'painting1_return');
         painting1.setAttribute('scale', '20 20 20');
         painting1.setAttribute('gltf-model', '#painting_gltf');
-        painting1.setAttribute('position', '-52 -1.6 -8.6');
-        painting1.setAttribute('rotation', '-9.1 0 0');
+        painting1.setAttribute('position', '-52.56613 -1.85032 -0.35905');
+        painting1.setAttribute('rotation', '7.198641738023663 0 0');
 
         
         let blizzPainting = document.querySelector('#greenPaint');
@@ -535,7 +536,7 @@ AFRAME.registerComponent('blz-manager', {
 
         let voteCounter = document.createElement('a-entity');
         voteCounter.setAttribute('id', 'voteCounter_greenPaint_return');
-        voteCounter.setAttribute('position', '-60 2.7 -3');
+        voteCounter.setAttribute('position', '-52.56613 -1.85032 -0.35905');
         voteCounter.setAttribute('rotation', '0 0 0');
         voteCounter.setAttribute('text', 'value: Votes: 0; align: center; color: white; width: 4');
     
@@ -576,8 +577,8 @@ AFRAME.registerComponent('sled-pedestal-trigger', {
         //the parts start at 0, but the raft starts a 1
         this.sled.setAttribute('gltf-model', `#Sled${this.sledPartsPlaced}`);
         this.sled.setAttribute('scale', {x:50, y:50, z:50});
-        this.sled.setAttribute('position', {x:-52.268, y:-0.70464, z:-5.05486});
-        this.sled.setAttribute('rotation', {x:0, y:0, z:2.089});
+        this.sled.setAttribute('position', {x:-43.58566 , y:-1.42022, z:-0.72125});
+        this.sled.setAttribute('rotation', {x:10.304645945427856 , y:0, z:2.0890041210469814});
        console.log("Local parts placed: " + this.sledPartsPlaced);
       };
       
@@ -838,12 +839,30 @@ AFRAME.registerComponent('blz-lazy-load-environment', {
         const blzEnv = document.createElement('a-entity');
         //adding cylinder for testing - replace with gltf
         //blzEnv.setAttribute('geometry', 'primitive: cylinder; height: 1; radius: 0.2');
+        //add the snow
+        
         blzEnv.setAttribute('gltf-model', '#blz_environment');
         blzEnv.setAttribute('position', '-42 -8 -10.743');
         blzEnv.setAttribute('scale', '8 8 8')
         blzEnv.setAttribute('visible', 'true');
         blzEnv.setAttribute('id', 'blzEnv');
+
+        const blzSnow = document.createElement('a-entity');
+        blzSnow.setAttribute('particle-system', {
+          preset: 'snow', 
+          particleCount: 5000
+        })
+        blzSnow.setAttribute('id', 'snow_particles');
+
+
         blzWorld.appendChild(blzEnv);
+        if (blzSnow !== undefined) {
+          blzWorld.appendChild(blzSnow);
+          console.log("snow is defined!");
+        }
+        else {
+          console.log("snow object: " + blzSnow);
+        }
 
       const blz_Env = document.querySelector('#blz_environment');
       if (blz_Env) {
