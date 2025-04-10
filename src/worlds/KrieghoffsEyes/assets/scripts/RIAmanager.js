@@ -394,6 +394,22 @@ AFRAME.registerComponent('lazy-load-environment', {
         riaEnv.setAttribute('scale', '5 5 5');
         riaEnv.setAttribute('visible', 'false');
         riaEnv.setAttribute('id', 'riaEnv');
+
+         //raft building instructions
+         const riaRaftInst = document.createElement('a-entity');
+         riaRaftInst.setAttribute('id', 'raftInst');
+         riaRaftInst.setAttribute('position', '-18.11358 4.50648 -4.93501');
+         riaRaftInst.setAttribute('circles-description', {
+           title_text_front:       'Build the Raft!',
+           description_text_front: 'Grab all the logs and touch them to the raft to build it!',
+           title_text_back:        '',
+           description_text_back:  '',
+           offset:                 '0 0 0',
+           arrow_position:         'right',
+           lookAtCamera:           'true'
+         });
+
+        riaWorld.appendChild(riaRaftInst);
         riaWorld.appendChild(riaEnv);
 
       });
