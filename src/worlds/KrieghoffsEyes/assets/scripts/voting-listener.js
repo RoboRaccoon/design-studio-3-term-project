@@ -1,6 +1,7 @@
 AFRAME.registerComponent('voting-listener', {
   init: function () {
     const riaManager = document.querySelector("#GameManager");
+    const redPaint_return = document.querySelector("#redPaint_return");
     // const cabin = document.querySelector("#Cabin");
     var self = this;
     // Array to store voterId, painting
@@ -82,6 +83,9 @@ AFRAME.registerComponent('voting-listener', {
             }
 
             if (winner === "redPaint_return") {
+              const redPaint_return = document.querySelector("#redPaint_return");
+              redPaint_return.setAttribute('circles-sendpoint', 'target:#checkpoint_red_return;');
+              
               riaManager.emit('return-clicked');
               setTimeout(() => {
                 winningEntity.removeAttribute("circles-sendpoint");
@@ -90,6 +94,8 @@ AFRAME.registerComponent('voting-listener', {
               }, 0);
             }
             if (winner === "greenPaint_return") {
+              const greenPaint_return = document.querySelector("#greenPaint_return");
+              greenPaint_return.setAttribute('circles-sendpoint', 'target:#checkpoint_green_return;');
               riaManager.emit('return-clicked');
               setTimeout(() => {
                 winningEntity.removeAttribute("circles-sendpoint");
@@ -173,9 +179,13 @@ AFRAME.registerComponent('voting-listener', {
               setTimeout(() => {
                 winningEntity.removeAttribute("circles-sendpoint");
               }, 0);
+              let blzEnv = document.querySelector('#blzWorld');
+              blzEnv.setAttribute('visible', 'true');
             }
 
             if (data.winner === "redPaint_return") {
+              const redPaint_return = document.querySelector("#redPaint_return");
+              redPaint_return.setAttribute('circles-sendpoint', 'target:#checkpoint_red_return;');
               riaManager.emit('return-clicked');
               setTimeout(() => {
                 winningEntity.removeAttribute("circles-sendpoint");
@@ -184,6 +194,8 @@ AFRAME.registerComponent('voting-listener', {
               }, 0);
             }
             if (data.winner === "greenPaint_return") {
+              const greenPaint_return = document.querySelector("#greenPaint_return");
+              greenPaint_return.setAttribute('circles-sendpoint', 'target:#checkpoint_green_return;');
               riaManager.emit('return-clicked');
               setTimeout(() => {
                 winningEntity.removeAttribute("circles-sendpoint");

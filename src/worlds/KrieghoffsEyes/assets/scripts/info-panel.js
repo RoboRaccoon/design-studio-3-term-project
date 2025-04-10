@@ -21,8 +21,8 @@ AFRAME.registerComponent('info-panel', {
       redPaint: { title: 'Raft in Autumn', description: '"Find the logs to build the raft!"' },
       greenPaint: { title: 'The Blizzard', description: '"Clear the debris and fix the sled!"' },
       bluePaint: { title: 'Blue Painting', description: 'A blue painting.' },
-      redPaint_return: { title: 'Red Painting', description: 'A red painting.' },
-      greenPaint_return: { title: 'Green Painting', description: 'A green painting.' } 
+      redPaint_return: { title: 'Return to the studio', description: '' },
+      greenPaint_return: { title: 'Green Painting', description: '' } 
     };
     
     this.paintingImages = {
