@@ -1,0 +1,11 @@
+{
+    "world": {
+        "name": "NND Demos",
+        "type": "hub",
+        "imgPath": "./profile.jpg",
+        "description_short": "NND Demos.",
+        "description_long": "The differnet app ideas that we came up with.",
+        "tags": [ "hub", "fire", "campfire"],
+        "supportedDevices": [ "mobile", "desktop", "hmd_3dof", "hmd_6dof" ]
+    }
+}
